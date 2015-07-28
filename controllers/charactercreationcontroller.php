@@ -66,6 +66,19 @@ class CharactercreationController extends Controller
             echo "Application error:" . $e->getMessage();
         }
 	}
+	public function create() {
+		try {
+			//if($_SERVER['CONTENT_LENGTH'] == 39) {
+				$charvalues = $this->_model->CreateChar($_POST);
+				$this->_view->set('charvalues', $charvalues);
+				return $this->_view->output();
+			//}
+		}
+		catch (Exception $e) {
+            echo "Application error:" . $e->getMessage();
+        }
+		
+	}
     
 	
     // End
